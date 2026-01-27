@@ -1,0 +1,27 @@
+{
+  "name": "Tabou - EisatoponAI",
+  "short_name": "Tabou",
+  "description": "Viral word guessing game with 310 cards across 10 categories",
+  "start_url": "/tabou-eisatopon/tabou-app.html",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#E74C3C",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["games", "entertainment"],
+  "lang": "el",
+  "dir": "ltr"
+}
