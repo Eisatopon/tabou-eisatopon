@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabou Γενικών Γνώσεων – Παίξε online | Eisatopon</title>
+    <meta name="description" content="Παίξε Tabou Γενικών Γνώσεων online με την παρέα σου. Δωρεάν, χωρίς κατέβασμα, σε κινητό ή υπολογιστή. 310 κάρτες σε 10 κατηγορίες!">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Tabou Γενικών Γνώσεων – Παίξε online | Eisatopon">
+    <meta property="og:description" content="Δωρεάν παιχνίδι Tabou για παρέες. 310 κάρτες, 10 κατηγορίες. Παίζεται απευθείας στο browser!">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://eisatopon.github.io/tabou-eisatopon/">
+    <meta property="og:image" content="https://eisatopon.github.io/tabou-eisatopon/tabou-hero.png">
+    
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-96B5H2L23R"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-96B5H2L23R');
+    </script>
+    
+    <style>
+        :root {
+            --red: #E74C3C;
+            --red-dark: #C0392B;
+            --purple: #9B59B6;
+            --gold: #F39C12;
+            --dark: #1f2933;
+            --light: #f5f7fa;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Oxygen', Ubuntu, Cantarell, sans-serif;
+            background: #ffffff;
+            color: #222;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #E74C3C 0%, #C0392B 50%, #9B59B6 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Use custom hero image as background */
+        .hero.with-image {
+            background-image: url('tabou-hero.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(243, 156, 18, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(155, 89, 182, 0.15) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        /* Dark overlay for better text readability on custom images */
+        .hero.with-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+            pointer-events: none;
+        }
+        
+        .hero-inner {
+            max-width: 1000px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 25px;
+            color: #ffffff;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            letter-spacing: -1px;
+        }
+        
+        .hero .tagline {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #ffffff;
+            font-weight: 600;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            color: rgba(255, 255, 255, 0.95);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta {
+            display: inline-block;
+            background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+            color: #E74C3C;
+            padding: 20px 50px;
+            border-radius: 50px;
+            font-size: 1.3rem;
+            font-weight: 800;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            border: 3px solid transparent;
+        }
+        
+        .cta:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+            border-color: #F39C12;
+        }
+        
+        .cta:active {
+            transform: translateY(-2px) scale(1.02);
+        }
+        
+        .hero-stats {
+            margin-top: 30px;
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #F39C12;
+            display: block;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .stat-label {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.9);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* SECTION */
+        section {
+            padding: 100px 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: auto;
+        }
+        
+        .center {
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            font-weight: 800;
+            color: #1f2933;
+        }
+        
+        .subtitle {
+            max-width: 750px;
+            margin: 0 auto 60px;
+            color: #555;
+            font-size: 1.15rem;
+            line-height: 1.7;
+        }
+
+        /* FEATURES */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 35px;
+            margin-top: 50px;
+        }
+        
+        .feature {
+            padding: 40px 30px;
+            border-radius: 25px;
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .feature:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+            border-color: var(--red);
+        }
+        
+        .feature-icon {
+            font-size: 3.5rem;
+            display: block;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+        }
+        
+        .feature strong {
+            font-size: 1.4rem;
+            color: var(--dark);
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        .feature p {
+            color: #666;
+            font-size: 1rem;
+        }
+
+        /* CATEGORIES SHOWCASE */
+        .categories-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+        
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 50px;
+        }
+        
+        .category-card {
+            background: white;
+            padding: 25px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .category-card:hover {
+            transform: scale(1.05);
+        }
+        
+        .category-icon {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .category-name {
+            font-weight: 700;
+            color: var(--dark);
+            font-size: 1.1rem;
+        }
+
+        /* HOW IT WORKS */
+        .how-section {
+            background: #ffffff;
+        }
+        
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .step {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            border: 2px solid #e9ecef;
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .step:hover {
+            border-color: var(--red);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .step-number {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--red), var(--red-dark));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 900;
+            box-shadow: 0 5px 20px rgba(231, 76, 60, 0.4);
+        }
+        
+        .step strong {
+            font-size: 1.3rem;
+            color: var(--dark);
+            display: block;
+            margin: 20px 0 10px;
+        }
+        
+        .step p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* FINAL CTA */
+        .final {
+            background: linear-gradient(135deg, #E74C3C 0%, #9B59B6 100%);
+            color: #fff;
+            text-align: center;
+            padding: 120px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .final::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 30% 70%, rgba(243, 156, 18, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 70% 30%, rgba(52, 152, 219, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .final h2 {
+            color: white;
+            font-size: 3rem;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .final p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .final .cta {
+            background: white;
+            color: var(--red);
+            font-size: 1.4rem;
+            padding: 22px 55px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 40px 20px;
+            text-align: center;
+            background: #1f2933;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        footer a {
+            color: var(--red);
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        
+        footer a:hover {
+            color: var(--gold);
+        }
+        
+        .footer-links {
+            margin-top: 20px;
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero .tagline {
+                font-size: 1.2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .cta {
+                padding: 16px 35px;
+                font-size: 1.1rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .stat-number {
+                font-size: 2rem;
+            }
+            
+            .hero-stats {
+                gap: 25px;
+            }
+            
+            .features {
+                grid-template-columns: 1fr;
+            }
+            
+            .steps {
+                grid-template-columns: 1fr;
+            }
+            
+            .categories-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .categories-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero with-image">
+    <div class="hero-inner">
+        <h1>🎮 Tabou Γενικών Γνώσεων</h1>
+        <p class="tagline">Περιέγραψε τη λέξη χωρίς να πεις τις απαγορευμένες! 🚫</p>
+        <p>Το απόλυτο παιχνίδι για παρέες, οικογένειες και τάξεις.<br>
+        Δωρεάν, χωρίς κατέβασμα, παίζεται απευθείας στο browser.</p>
+        
+        <a class="cta" href="tabou-app.html" onclick="gtag('event', 'click', {'event_category': 'CTA', 'event_label': 'Hero Button'});">
+            Παίξε Τώρα ▶
+        </a>
+        
+        <div class="hero-stats">
+            <div class="stat">
+                <span class="stat-number">310</span>
+                <span class="stat-label">Κάρτες</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number">10</span>
+                <span class="stat-label">Κατηγορίες</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number">100%</span>
+                <span class="stat-label">Δωρεάν</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FEATURES -->
+<section>
+    <div class="container center">
+        <h2>Γιατί θα το λατρέψεις</h2>
+        <p class="subtitle">Ένα σύγχρονο παιχνίδι Tabou σχεδιασμένο για κινητά, tablets και υπολογιστές. Ιδανικό για παρέες, οικογένειες και εκπαιδευτικές δραστηριότητες.</p>
+
+        <div class="features">
+            <div class="feature">
+                <span class="feature-icon">📱</span>
+                <strong>Παίζει Παντού</strong>
+                <p>Κινητό, tablet ή υπολογιστή - responsive design για όλες τις συσκευές</p>
+            </div>
+            
+            <div class="feature">
+                <span class="feature-icon">🚫</span>
+                <strong>Χωρίς Κατέβασμα</strong>
+                <p>Ανοίγει απευθείας στο browser. Δεν χρειάζεται εγκατάσταση!</p>
+            </div>
+            
+            <div class="feature">
+                <span class="feature-icon">🎓</span>
+                <strong>Γενικές Γνώσεις</strong>
+                <p>Ιστορία, επιστήμη, αθλητισμό, κινηματογράφος &amp; πολλά άλλα</p>
+            </div>
+            
+            <div class="feature">
+                <span class="feature-icon">👥</span>
+                <strong>Ομαδικό Παιχνίδι</strong>
+                <p>Ιδανικό για σπίτι, σχολείο ή φίλους online</p>
+            </div>
+            
+            <div class="feature">
+                <span class="feature-icon">⏱️</span>
+                <strong>Χρονόμετρο 60"</strong>
+                <p>Κάθε γύρος διαρκεί 60 δευτερόλεπτα - γρήγορο &amp; συναρπαστικό!</p>
+            </div>
+            
+            <div class="feature">
+                <span class="feature-icon">🎯</span>
+                <strong>Σύστημα Σκορ</strong>
+                <p>Μέτρα την επίδοση της ομάδας σου με το ενσωματωμένο σύστημα πόντων</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CATEGORIES -->
+<section class="categories-section">
+    <div class="container center">
+        <h2>10 Διαφορετικές Κατηγορίες</h2>
+        <p class="subtitle">Από κινηματογράφο μέχρι επιστήμη - διάλεξε την αγαπημένη σου κατηγορία ή δοκίμασε το Mixed Mode!</p>
+        
+        <div class="categories-grid">
+            <div class="category-card">
+                <div class="category-icon">🎬</div>
+                <div class="category-name">Κινηματογράφος</div>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">♪</div>
+                <div class="category-name">Μουσική</div>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">⚽</div>
+                <div class="category-name">Αθλητισμός</div>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">🌍</div>
+                <div class="category-name">Γεωγραφία</div>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">🍔</div>
+                <div class="category-name">Φαγητό</div>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">💻</div>
+                <div class="category-name">Τεχνολογία</div>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">🦁</div>
+                <div class="category-name">Ζώα</div>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">🏛️</div>
+                <div class="category-name">Ιστορία</div>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">📺</div>
+                <div class="category-name">Ελληνική TV</div>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">⚗️</div>
+                <div class="category-name">Επιστήμη</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-section">
+    <div class="container center">
+        <h2>Πώς Παίζεται</h2>
+        <p class="subtitle">Απλοί κανόνες που μαθαίνονται σε 30 δευτερόλεπτα. Διασκέδαση που κρατάει ώρες!</p>
+        
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <strong>Διάλεξε Κατηγορία</strong>
+                <p>Επίλεξε από τις 10 κατηγορίες ή δοκίμασε το Mixed Mode για τυχαίες κάρτες</p>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">2</div>
+                <strong>Περιέγραψε τη Λέξη</strong>
+                <p>Βοήθησε την ομάδα σου να μαντέψει τη λέξη με υπαινιγμούς και περιγραφές</p>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">3</div>
+                <strong>Απόφυγε τις Απαγορευμένες</strong>
+                <p>Κάθε κάρτα έχει 5 απαγορευμένες λέξεις που ΔΕΝ μπορείς να πεις</p>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">4</div>
+                <strong>Κέρδισε Πόντους</strong>
+                <p>Μάζεψε όσους πιο πολλούς πόντους μπορείς μέσα σε 60 δευτερόλεπτα!</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final">
+    <div class="container">
+        <h2>Έτοιμοι για Παιχνίδι;</h2>
+        <p>Ξεκίνα τώρα το Tabou Γενικών Γνώσεων και δημιούργησε αξέχαστες στιγμές με την παρέα σου!</p>
+        <a class="cta" href="tabou-app.html" onclick="gtag('event', 'click', {'event_category': 'CTA', 'event_label': 'Bottom Button'});">
+            Παίξε Τώρα 🎮
+        </a>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>© 2025 <a href="https://www.eisatopon.gr" target="_blank">Eisatopon.gr</a> · Tabou Γενικών Γνώσεων</p>
+        <div class="footer-links">
+            <a href="https://www.eisatopon.gr" target="_blank">Blog</a>
+            <a href="https://github.com/Eisatopon/tabou-eisatopon" target="_blank">GitHub</a>
+            <a href="tabou-app.html">Παίξε Τώρα</a>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
