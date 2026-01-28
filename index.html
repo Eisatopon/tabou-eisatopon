@@ -103,6 +103,24 @@
             z-index: 10;
         }
         
+        /* Make entire hero section clickable */
+        .hero-link {
+            display: block;
+            width: 100%;
+            height: 100%;
+            text-decoration: none;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+        
+        .hero-link:hover {
+            opacity: 0.95;
+        }
+        
+        .hero-link:active {
+            opacity: 0.9;
+        }
+        
         .hero h1 {
             font-size: 4rem;
             font-weight: 900;
@@ -476,9 +494,11 @@
 
 <!-- HERO -->
 <section class="hero with-image">
-    <div class="hero-inner">
-        <!-- Image has all text already - no HTML text needed -->
-    </div>
+    <a href="tabou-app.html" class="hero-link" onclick="gtag('event', 'click', {'event_category': 'Hero', 'event_label': 'Full Image Click'});">
+        <div class="hero-inner">
+            <!-- Image has all text already - entire section is clickable -->
+        </div>
+    </a>
 </section>
 
 <!-- FEATURES -->
